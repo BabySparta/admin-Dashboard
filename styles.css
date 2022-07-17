@@ -64,6 +64,47 @@
 
 .content {
     background-color: gray;
+    padding: 24px;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 24px;
+}
+
+.projects {
+    background-color: lightcoral;
+    grid-row: 1 / -1;
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-rows: 1fr 16fr;
+}
+
+.projectsTitle {
+    background-color: aqua;
+}
+
+.projectsContent {
+    background-color: black;
+    display: grid;
+    overflow: auto;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    grid-template-rows: 1fr, 1fr, 1fr;
+}
+
+.project {
+    background-color: white;
+}
+
+.announcements {
+    background-color: lightcoral;
+    grid: 1 / 2 / 2 / 3;
+}
+
+.trending {
+    background-color: lightcoral;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
 }
