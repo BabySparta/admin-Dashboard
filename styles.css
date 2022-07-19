@@ -1,18 +1,33 @@
+@font-face {
+    font-family: spacefont;
+    src: url(fonts/AquireLight-YzE0o.otf);
+} 
+@font-face {
+    font-family: spacefontNorm;
+    src: url(fonts/Aquire-BW0ox.otf);
+}
+
+:root {
+    --spacePurple: #a0169bff; 
+    --darkSpacePurple: #5c007bff;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 .wrapper {
+    background-color: black;
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 1fr 4fr;
     grid-template-columns: 1fr 4fr;
 }
 
 .header {
-    background-color: blue;
+    background-color: rgb(0, 2, 134);
     padding: 24px;
     grid-column: 2 / 3;
     display: grid;
@@ -22,48 +37,182 @@
 }
 
 .search {
-    background-color: blanchedalmond;
-    grid: 1 / 2 / 1 / 2
+    grid: 1 / 2 / 1 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBar {
+    background-color: rgb(5, 19, 99);
+    border-radius: calc(1em + 10px);
+    border:none;
+    outline: none;
+    font-size: 18px;
+    color: var(--spacePurple);
+    padding: 10px;
+    transition: 0.2s ease-in;
+    width: 90%;
+    font-family: 'Monaco', Courier, monospace;
+    font-weight: 400;
+}
+
+.searchBar:focus {
+    transition: 0.2s ease-in;
+    box-shadow: 0px 3px rgb(189, 113, 0);
+}
+
+.searchIcon, .notifications {
+    transition: 0.2s ease-in;
+    width: 36px;
+    height: 36px;
+}
+
+.searchIcon:hover {
+    cursor:pointer;
+    transform: 
+            scale(1.05)
+            rotate(13deg);
+    transition: 0.2s ease-in;
 }
 
 .userInfo {
-    background-color: blanchedalmond;
     grid: 1 / 2 / 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.userName {
+    font-size: 24px;
+    font-family: 'Monaco', Courier, monospace;
+    font-weight: 700;
+    color: var(--spacePurple);
+}
+
+.userIcon {
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
 }
 
 .helloUser {
-    background-color: blanchedalmond;
     grid: 2 / 3 / 1 / 2;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    gap: 16px;
+    padding-left: 16px;
+}
+
+.big {
+    width: 84px;
+    height: 84px;
+}
+
+.hello, .username {
+    font-family: 'Monaco', Courier, monospace;
+    color: var(--spacePurple);
+}
+
+.hello {
+    font-size: 1.2rem;
+}
+
+.username {
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .navButtons {
-    background-color: blanchedalmond;
     grid: 2 / 3 / 2 / 3;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 48px;
+}
+
+button:hover, .notifications:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: 0.2s ease-in;
+}
+
+.navButtons button {
+    width: 8rem;
+    height: 3rem;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Monaco', Courier, monospace;
+    background-color: var(--spacePurple);
+    border-radius: 1.5rem;
+    border: none;
+    color: rgb(0, 2, 134);
 }
 
 .sidebar {
-    background-color: green;
+    background-color: rgb(5, 19, 99);
     padding: 24px;
     grid-row: 1 / 3;
     display: grid;
-    gap: 3rem;
+    gap: 4rem;
     grid-template-rows: 4rem 24rem 12rem;
 }
 
+.sideHeader {
+    border-bottom: solid rgb(189, 113, 0) 4px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.sideHeaderIcon {
+    width: 56px;
+    height: 56px;
+}
+
+.sideHeaderTxt {
+    color: var(--spacePurple);
+    font-size: 3rem;
+    font-style: italic;
+    font-family: spacefont, 'Times New Roman', Times, serif;
+}
+
 .sideWrapper {
-    background-color: yellow;
     display: grid;
     grid-template-rows: repeat(6, 1fr);
+    gap: 1rem;
+}
+
+.side {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 12px;
+}
+
+.side:hover, .sideHeader:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.side div {
+    font-size: 2rem;
+    color: var(--spacePurple);
+    font-family: spacefont, 'Times New Roman', Times, serif;
+    text-decoration: underline 2px solid rgb(189, 113, 0);
+    text-underline-offset: 6px;
 }
 
 .sideWrapperTwo {
-    background-color: yellow;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
 }
 
 .content {
-    background-color: gray;
+    background-color: rgb(98, 131, 197);
     padding: 24px;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
@@ -74,19 +223,13 @@
 }
 
 .projects {
-    background-color: lightcoral;
     grid-row: 1 / -1;
     grid-column: 1 / 2;
     display: grid;
     grid-template-rows: 1fr 16fr;
 }
 
-.projectsTitle {
-    background-color: aqua;
-}
-
 .projectsContent {
-    background-color: black;
     display: grid;
     overflow: auto;
     gap: 16px;
@@ -95,16 +238,133 @@
 }
 
 .project {
-    background-color: white;
+    background-color: rgb(224, 224, 224);
+    border-radius: 12px;
+    border-left: 12px solid rgb(189, 113, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: end;
+    padding: 12px;
+}
+
+.projectTxt {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: left;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.projectTitle {
+    color: var(--spacePurple);
+    font-size: 1.5rem;
+    font-style: italic;
+    font-family: "Monaco", Courier, serif;
+    font-weight: 700;
+}
+
+.projectBody {
+    width: 85%;
+    color: var(--darkSpacePurple);
+    font-size: 1rem;
+    font-style: italic;
+    font-family: "Monaco", Courier, serif;
+}
+
+.projectIcons {
+    height: 56px;
+    display: flex;
+    justify-content: right;
+    gap: 16px;
+}
+
+.projectIcon {
+    width: 36px;
+    height: 36px;
+    margin-right: 16px;
 }
 
 .announcements {
-    background-color: lightcoral;
     grid: 1 / 2 / 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
 }
 
+.announceContent, .trendContent {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+.announceTitle, .trendTitle, .projectsTitle {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    color: var(--spacePurple);
+    font-size: 2rem;
+    font-style: italic;
+    font-family: spacefontNorm, 'Times New Roman', Times, serif;
+    padding-bottom: 12px;
+}
+
+.announceContent {
+    background-color: rgb(0, 2, 134);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: left;
+    flex-direction: column;
+    height: 280px;
+}
+
+.announce, .trend {
+    color: var(--spacePurple);
+    font-size: 1rem;
+    font-family: 'Monaco', Courier, monospace;
+    height: 1fr;
+}
+
+.siteWork, .shareDay {
+    padding-bottom: 18px;
+    border-bottom: 2px solid rgb(189, 113, 0);
+}
+
+
 .trending {
-    background-color: lightcoral;
     grid-row: 2 / 3;
     grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.trendContent {
+    background-color: rgb(0, 2, 134);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: left;
+    flex-direction: column;
+    height: 280px;
+}
+
+.trend {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 16px;
+}
+
+.person {
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.trendIcon {
+    width: 48px;
+    height: 48px;
 }
